@@ -1,1 +1,27 @@
+Version .1:
 
+Allow unauthenticated users to make a blog post with
+
+Title
+Author
+Date
+Body
+
+
+Front page:
+Displays latest posts in shortened format.
+
+Blog Post:
+Displays blog post in full.
+
+Current Goals:
+
+1. Successfully create proper database tables, and configure Database configuration and Doctrine for post persistence.
+
+blog_posts tables will have:
+
+id
+Title
+Author
+Date
+Body
