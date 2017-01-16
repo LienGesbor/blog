@@ -1,9 +1,9 @@
 
-
-{% block createform %}
-    
-    {{ form_start (form) }}
-    {{ form_widget (form) }}
-    {{ form_end (form) }}
-    
-{% endblock %}
+<ul>
+   {% for post in results %}
+        <li>{{ post.postAuthor }}</li>
+        <li>{{ post.postTitle }}</li>
+        <li>{{ post.postBody }}</li>
+        <br>
+    {% endfor %}
+</ul>

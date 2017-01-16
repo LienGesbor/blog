@@ -15,11 +15,27 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class PostController extends Controller
 {
     
+    
     /**
-     * @Route("/create")
+     * @Route("/posts")
      */
     public function indexAction(Request $request)
     {
+        
+        $em = $this->getDoctrine()->getManager();
+
+        $results = $em->getRepository('AppBundle:Post')->findAll();
+
+        return $this->render('postforms/list.html.twig', array(
+            'results' => $results,
+        ));
+    }
+    
+    /**
+     * @Route("/posts/create")
+     */
+    public function createAction(Request $request) {
+        
         $post = new Post();
         
         $form = $this->createForm(PostType::class, $post, array(
@@ -40,12 +56,9 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush();
         }
-        return $this->render('postforms/list.html.twig', array(
+        return $this->render('postforms/create.html.twig', array(
             'form' => $form->createView(),
         ));
-    }
-    
-    public function createAction($param) {
         
     }
             
