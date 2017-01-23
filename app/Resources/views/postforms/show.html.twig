@@ -1,12 +1,8 @@
 
 <ul>
-   {% for post in results %}
         <li>{{ post.postAuthor }}</li>
         <li>{{ post.postTitle }}</li>
         <li>{{ post.postBody }}</li>
         <a href="{{ path('edit_post', { 'id': post.id }) }}">Edit</a>
-        <a href="{{ path('show_post', { 'id': post.id }) }}">View Post</a>
-
         <br>
-    {% endfor %}
 </ul>
