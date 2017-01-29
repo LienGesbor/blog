@@ -4,9 +4,9 @@
         <li>{{ post.postAuthor }}</li>
         <li>{{ post.postTitle }}</li>
         <li>{{ post.postBody }}</li>
-        <a href="{{ path('edit_post', { 'id': post.id }) }}">Edit</a>
-        <a href="{{ path('show_post', { 'id': post.id }) }}">View Post</a>
-
+        <a href="{{ path('show_post', { 'id': post.id })}}">View Post</a>
+        <br>
         <br>
     {% endfor %}
+        <a href="{{ path('create_post')}}">Create New Post</a>
 </ul>

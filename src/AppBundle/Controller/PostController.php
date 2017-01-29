@@ -22,9 +22,9 @@ class PostController extends Controller
     
     
     /**
-     * @Route("/")
+     * @Route("/", name="list_posts")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         
         $em = $this->getDoctrine()->getManager();
@@ -38,69 +38,42 @@ class PostController extends Controller
     
     
     /**
-     * @Route("/{id}", name="show_post")
-     */
-    public function showAction(Post $post)
-    {
-        $deleteForm = $this->render('postforms/list.html.twig', array(
-        ));
-    }
-    
-    /**
-     * @Route("/create")
+     * @Route("/create", name="create_post")
      */
     public function createAction(Request $request)
     {
-        
         $post = new Post();
         
-        $form = $this->createForm(PostType::class, $post, array(
-            'method'=> 'POST'
+        $form = $this->createForm(PostType::class, $post);
+        $form->add('submit', SubmitType::class, array(
+            'label' => 'Create Post'
         ));
-        
-        
-        $form->add('Submit', SubmitType::class);
         
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid())
         {
-            $form->getData();
+            $post = $form->getData();
             
             $em = $this->getDoctrine()->getManager();
-            
             $em->persist($post);
             $em->flush();
+            
         }
-        return $this->render('postforms/create.html.twig', array(
-            'form' => $form->createView(),
-        ));
         
+        return $this->render('postforms/create.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
     
     /**
-     * @Route("/postnumber{id}/edit_post", name="edit_post")
+     * @Route("/{id}", name="show_post")
      */
-    public function editAction(Request $request)
+    public function showAction(Post $post)
     {
-        $post = new post();
         
-        var_dump($_GET);
-        
-        $editForm = $this->createForm(PostType::class, $post);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $id = $request->get('id');
-            
-            $stmt = 'UPDATE posts WHERE';
-        }
-        return $this->render('postforms/edit.html.twig', array(
-            'editForm' => $editForm->createView(),
+        return $this->render('postforms/show.html.twig', array(
+           'post' => $post
         ));
     }
 }
-    
-    
-            
-
