@@ -1,7 +1,22 @@
-{% block createform %}
+<div class="create_post__form_main_wrapper">
+    {% block createform %}
     
     {{ form_start (form) }}
-    {{ form_widget (form) }}
-    {{ form_end (form) }}
+    {{ form_errors (form) }}
     
+    {{ form_widget (form.postTitle) }}
+    <br>
+    {{ form_widget (form.postAuthor) }}
+    <br>
+    {{ form_widget (form.postBody) }}
+    <br>
+    {{ form_widget (form.postDate) }}
+    <br>
+    
+    <input type="submit" value="Create Post" class="create_post_button" />
+    
+    {{ form_end (form) }}
 {% endblock %}
+
+<a class="back_to_posts_link" href="/posts">Back to Posts</a>
+</div>

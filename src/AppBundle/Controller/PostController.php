@@ -6,12 +6,8 @@ use AppBundle\Form\PostType;
 use AppBundle\Entity\Post;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
 
 
 /**
@@ -45,9 +41,6 @@ class PostController extends Controller
         $post = new Post();
         
         $form = $this->createForm(PostType::class, $post);
-        $form->add('submit', SubmitType::class, array(
-            'label' => 'Create Post'
-        ));
         
         $form->handleRequest($request);
         
