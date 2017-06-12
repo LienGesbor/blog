@@ -10,15 +10,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-/**
- * @Route("posts")
- */
 class PostController extends Controller
 {
     
     
     /**
-     * @Route("/", name="list_posts")
+     * @Route("/", name="homepage")
      */
     public function indexAction()
     {
@@ -60,7 +57,7 @@ class PostController extends Controller
     }
     
     /**
-     * @Route("/{id}", name="show_post")
+     * @Route("/post/{id}", name="show_post")
      */
     public function showAction(Post $post)
     {
