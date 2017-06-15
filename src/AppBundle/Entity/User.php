@@ -49,6 +49,13 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     *@ORM\Column(type="string", length=50)
+     * 
+     */
+    private $role = 'ROLE_USER';
+
+
     // other properties and methods
 
     public function getEmail()
@@ -103,6 +110,8 @@ class User implements UserInterface
     }
 
     public function getRoles() {
+        
+        return array('ROLE_USER');
         
     }
 

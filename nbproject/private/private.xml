@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/daniel/dev/php/blog/app/Resources/views/registration/register.html.twig</file>
             <file>file:/home/daniel/dev/php/blog/src/AppBundle/Controller/RegistrationController.php</file>
+            <file>file:/home/daniel/dev/php/blog/app/Resources/views/postforms/create.html.twig</file>
         </group>
     </open-files>
 </project-private>
