@@ -80,7 +80,18 @@ class User implements UserInterface
      */
     private $role = 'ROLE_USER';
 
+    
+    
+    /**
+     *@ORM\Column(type="boolean", name="is_verified")
+     */
+    private $isVerified = FALSE;
+    public function checkEmailValidation()
+    {
+        return $this->isVerified;
+    }
 
+    
     // other properties and methods
 
     public function getEmail()
@@ -136,7 +147,7 @@ class User implements UserInterface
 
     public function getRoles() {
         
-        return array('ROLE_USER');
+        return array($this->role);
         
     }
 

@@ -34,10 +34,10 @@ class PostType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_post';
-    }
+//    public function getBlockPrefix()
+//    {
+//        return 'postCreate';
+//    }
 
 
 }

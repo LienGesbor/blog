@@ -10,7 +10,7 @@
     <br>
     {{ form_widget (form.postBody) }}
     <br>
-    {{ form_widget (form.postDate) }}
+    {{ form_widget (form.postDate, {'attr': { 'id': 'postCreateDate', 'class': 'postCreationFormWidget' } } ) }}
     <br>
     
     <input type="submit" value="Create Post" class="create_post_button" />

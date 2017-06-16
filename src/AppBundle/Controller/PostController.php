@@ -23,6 +23,7 @@ class PostController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $results = $em->getRepository('AppBundle:Post')->findAll();
+        
 
         return $this->render('postforms/list.html.twig', array(
             'results' => $results,
@@ -31,7 +32,7 @@ class PostController extends Controller
     
     
     /**
-     * @Route("/create", name="create_post")
+     * @Route("/post/create", name="create_post")
      */
     public function createAction(Request $request)
     {
