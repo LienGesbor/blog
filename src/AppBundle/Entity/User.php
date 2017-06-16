@@ -35,9 +35,34 @@ class User implements UserInterface
      */
     private $username;
 
+    
+//    Password must contain at least eight characters. One uppercase letter, one lowercase, and a number.
+//    No special characters.    
     /**
      * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
+     * 
+     * @Assert\Length(
+     *  min=8,
+     *  minMessage = "Your password must be at least {{ limit }} characters long",
+     * )
+     * 
+     * @Assert\Regex(
+     *  pattern="/[a-z]+/",
+     *  message="Your password must contain a lowercase letter."
+     * )
+     * @Assert\Regex(
+     *  pattern="/[A-Z]+/",
+     *  message="Your password must contain an uppercase letter."
+     * )
+     * @Assert\Regex(
+     *  pattern="/[0-9]+/",
+     *  message="Your password must contain a number."
+     * )
+     * @Assert\Regex(
+     *  pattern="/\W+/",
+     *  message="Your password must contain a special character."
+     * )
+     * 
      */
     private $plainPassword;
 
