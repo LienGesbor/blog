@@ -71,10 +71,20 @@ class PostController extends Controller
     /**
      * @Route("post/{id}/edit", name="edit_post")
      */
-     public function editAction(Post $post)
+     public function editAction(Request $request, Post $post)
      {
         $form = $this->createForm(PostType::class, $post);
-                 
+        
+        $form->handleRequest($request);
+        
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($post);
+            $em->flush();
+            
+            echo "Post Updated!";
+        }
         
         return $this->render('postforms/edit.html.twig', array(
             'post' => $post,
