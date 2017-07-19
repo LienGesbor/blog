@@ -1,5 +1,4 @@
     {% block createform %}
-<div class="create_post__form_main_wrapper">
     
     {{ form_start (form) }}
     {{ form_errors (form) }}
@@ -13,9 +12,9 @@
     {{ form_widget (form.postDate, {'attr': { 'id': 'postCreateDate', 'class': 'postCreationFormWidget' } } ) }}
     <br>
     
+    duh
+    
     <input type="submit" value="Create Post" class="create_post_button" />
     
     {{ form_end (form) }}
-<a class="back_to_posts_link" href="/">Back to Posts</a>
-</div>
 {% endblock %}

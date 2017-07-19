@@ -1,8 +1,18 @@
-{% block createform %}
+<div class="edit_post__form_main_wrapper">
     
-    {{ form_start (editForm) }}
-    {{ form_widget (editForm) }}
-    <input type="submit" value="Submit">
-    {{ form_end (editForm) }}
+    {{ form_start (form) }}
     
-{% endblock %}
+    {{ form_widget (form.postTitle) }}
+    <br>
+    {{ form_widget (form.postAuthor) }}
+    <br>
+    {{ form_widget (form.postBody) }}
+    <br>
+    {{ form_widget (form.postDate ) }}
+    <br>
+    
+    <input type="submit" value="Create Post" class="edit_post_button" />
+    
+    {{ form_end (form) }}
+<a class="back_to_posts_link" href="/">Back to Posts</a>
+</div>

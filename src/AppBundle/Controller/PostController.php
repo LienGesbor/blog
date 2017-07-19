@@ -26,7 +26,7 @@ class PostController extends Controller
         
 
         return $this->render('postforms/list.html.twig', array(
-            'results' => $results,
+            'results' => $results
         ));
     }
     
@@ -64,7 +64,21 @@ class PostController extends Controller
     {
         
         return $this->render('postforms/show.html.twig', array(
-           'post' => $post
+            'post' => $post
         ));
     }
+    
+    /**
+     * @Route("post/{id}/edit", name="edit_post")
+     */
+     public function editAction(Post $post)
+     {
+        $form = $this->createForm(PostType::class, $post);
+                 
+        
+        return $this->render('postforms/edit.html.twig', array(
+            'post' => $post,
+            'form' => $form->createView()
+        ));
+     }
 }
