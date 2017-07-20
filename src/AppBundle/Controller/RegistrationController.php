@@ -24,7 +24,7 @@ class RegistrationController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // 3) Encode the password (you could also do this via Doctrine listener)
+            // 3) Encode the password
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
@@ -34,8 +34,27 @@ class RegistrationController extends Controller
             $em->persist($user);
             $em->flush();
 
-            // ... do any other work - like sending them an email, etc
-            // maybe set a "flash" success message for the user
+
+
+            $name = $user->getUsername();
+
+            $email = $user->getEmail();
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('symfony@blog.com')
+                ->setTo($email)
+                ->setBody(
+                    $this->renderView(
+                    // app/Resources/views/Emails/registration.html.twig
+                        'emails/register.html.twig',
+                        array('name' => $name)
+                    ),
+                    'text/html'
+                )
+            ;
+
+            $this->get('mailer')->send($message);
+            echo 'Registeration Successful!';
 
         }
 
