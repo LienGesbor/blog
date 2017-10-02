@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
+        {% endblock %} 
+        
+    </head>
+    <body>
+
+        <div class="main_wrapper">
+            
+            
+            {% block topNavBar %}
+                <div class="top_nav_main_wrapper">
+                    <ul class="top_nav">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+                        <li><a href="{{ path('appinfo')}}">App Info</a></li>
+
+                        {% if not app.user%}
+                        <li><a href="{{ path('user_registration')}}">Register</a></li>
+                        {% endif %}
+
+
+                        {% if not app.user%}
+                        <li class="session_control_link"><a href="{{ path('login')}}">Login</a></li>
+                        {% endif %}
+
+                        {% if app.user %}
+                        <li><a id="new_post_link" href="{{ path('create_post')}}">Create New Post</a></li>
+                        <li class="session_control_link"><a href="{{ path('logout')}}">Logout</a></li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+            {% endblock %}
+
+            {% block banner %}
+            <div class="banner_main_wrapper">
+                {% block banner_content%}
+                    <h1>I'm not an expert designer... But boy, can I do server code!</h1>
+                {% endblock %}
+            </div>
+            {% endblock %}
+
+            
+            {% block main_content %}
+            <div class="content_main_wrapper">
+                
+                {% block listed_articles %}
+                    {% for post in results %}
+
+                        <div class="article_wrapper">                    
+                            <h2>{{ post.postAuthor }}</h2>
+                            <h2>{{ post.postTitle }}</h3>
+                            <h5>{{ post.postDate|date("F jS, Y") }}</h4> 
+                            <p>{{ post.postBody|slice(0, 100) ~ '...' }}</p>
+                            <a href="{{ path('show_post', { 'id': post.id })}}">View Post</a>
+                        </div>
+                    {% endfor %}
+                {% endblock %}
+            </div>
+            {% endblock %}
+
+        </div>
+
+
+    </body>
+</html>

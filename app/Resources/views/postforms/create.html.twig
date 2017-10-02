@@ -4,13 +4,13 @@
     {{ form_start (form) }}
     {{ form_errors (form) }}
     
-    {{ form_widget (form.postTitle) }}
+    {{ form_row (form.postTitle) }}
     <br>
-    {{ form_widget (form.postAuthor) }}
+    {{ form_row (form.postAuthor) }}
     <br>
-    {{ form_widget (form.postBody) }}
+    {{ form_row (form.postBody) }}
     <br>
-    {{ form_widget (form.postDate, {'attr': { 'id': 'postCreateDate', 'class': 'postCreationFormWidget' } } ) }}
+    {{ form_row (form.postDate, {'attr': { 'id': 'postCreateDate', 'class': 'postCreationFormWidget' } } ) }}
     <br>
     
     <input type="submit" value="Create Post" class="create_post_button" />

@@ -25,9 +25,8 @@ class PostController extends Controller
 
         $results = $em->getRepository('AppBundle:Post')->findAll();
         
-
         return $this->render('postforms/list.html.twig', array(
-            'results' => $results
+            'results' => $results,
         ));
     }
     

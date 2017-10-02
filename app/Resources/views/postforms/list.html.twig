@@ -1,18 +1,1 @@
-
-<ul>
-   {% for post in results %}
-        <li>{{ post.postAuthor }}</li>
-        <li>{{ post.postTitle }}</li>
-        <li>{{ post.postBody }}</li>
-        <a href="{{ path('show_post', { 'id': post.id })}}">View Post</a>
-        <br>
-        <br>
-    {% endfor %}
-        <a href="{{ path('create_post')}}">Create New Post</a>
-        <br>
-        <a href="{{ path('appinfo')}}">App Info</a>
-        <br>
-        <a href="{{ path('user_registration')}}">Register</a>
-        <br>
-        <a href="{{ path('login')}}">Login</a>
-</ul>
+{% extends 'basis.html.twig' %}

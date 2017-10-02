@@ -1,12 +1,27 @@
-{{ form_start(form) }}
-    {{ form_row(form.username) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.plainPassword.first) }}
-    {{ form_row(form.plainPassword.second) }}
+{% extends 'basis.html.twig' %}
 
-    <button type="submit">Register!</button>
-{{ form_end(form) }}
 
-<a href="/">Home</a>
-<br>
-<a href="/login">Login</a>
+{% block banner_content %}
+
+    {% block register_form %}
+        {{ form_start(form) }}
+            {{ form_row(form.username, {'attr': {'class': 'user_input'}}) }}
+            {{ form_row(form.email, {'attr': {'class': 'user_input'}})}}
+            {{ form_row(form.plainPassword.first, {'attr': {'class': 'user_input'}})}}
+            {{ form_row(form.plainPassword.second, {'attr': {'class': 'user_input'}})}}
+
+            <button type="submit">Register!</button>
+        {{ form_end(form) }}
+
+        <a href="/">Home</a>
+        <br>
+        <a href="/login">Login</a>
+    {% endblock %}
+
+{% endblock %}
+
+
+
+
+{% block main_content %}
+{% endblock %}
