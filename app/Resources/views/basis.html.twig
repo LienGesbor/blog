@@ -7,6 +7,7 @@
 
         {% block stylesheets %}
             <link href="{{ asset('css/list.css') }}" rel="stylesheet" />
+            <link href="{{ asset('css/res.css') }}" rel="stylesheet" />
         {% endblock %} 
         
     </head>
@@ -43,11 +44,23 @@
             {% block top_nav_side %}
                 
                 <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#">About</a>
-                    <a href="#">Services</a>
-                    <a href="#">Clients</a>
-                    <a href="#">Contact</a>
+                    <ul class="side_nav_menu">
+                        <li><a href="{{ path('homepage')}}">Home</a></li>
+
+                        {% if not app.user%}
+                        <li><a href="{{ path('user_registration')}}">Register</a></li>
+                        {% endif %}
+
+                        {% if not app.user%}
+                        <li><a href="{{ path('login')}}">Login</a></li>
+                        {% endif %}
+
+                        {% if app.user %}
+                        <li><a id="new_post_link" href="{{ path('create_post')}}">Create A Post!</a></li>
+                        <li><a href="{{ path('logout')}}">Logout</a></li>
+                        {% endif %}
+
+                    </ul>
                 </div>
 
             {% endblock %}
