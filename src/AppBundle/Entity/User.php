@@ -43,7 +43,7 @@ class User implements UserInterface
      * 
      * @Assert\Length(
      *  min=8,
-     *  minMessage = "Your password must be at least {{ limit }} characters long",
+     *  minMessage = "Your password must be at least {{ limit }} characters long.",
      * )
      * 
      * @Assert\Regex(

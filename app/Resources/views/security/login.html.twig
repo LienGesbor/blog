@@ -9,7 +9,7 @@
         
         <input class="user_input" type="password" id="password" name="_password" required="yes" placeholder="Password"/>
         
-        <button id="login_button" type="submit">Log Me In</button>
+        <button class="user_func_submit" type="submit">Log Me In</button>
         
         {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>

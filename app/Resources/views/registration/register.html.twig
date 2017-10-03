@@ -4,18 +4,14 @@
 {% block banner_content %}
 
     {% block register_form %}
-        {{ form_start(form) }}
-            {{ form_row(form.username, {'attr': {'class': 'user_input'}}) }}
-            {{ form_row(form.email, {'attr': {'class': 'user_input'}})}}
-            {{ form_row(form.plainPassword.first, {'attr': {'class': 'user_input'}})}}
-            {{ form_row(form.plainPassword.second, {'attr': {'class': 'user_input'}})}}
-
-            <button type="submit">Register!</button>
+        {{ form_start(form, {'attr': {'class': 'register_form'}} )}}
+            {{ form_row(form.username, {'attr': {'class': 'user_input', 'placeholder': 'Username' }})  }}
+            {{ form_row(form.email, {'attr': {'class': 'user_input', 'placeholder': 'Email'}}) }}
+            {{ form_row(form.plainPassword.first, {'attr': {'class': 'user_input', 'placeholder': 'Password'}}) }}
+            {{ form_row(form.plainPassword.second, {'attr': {'class': 'user_input', 'placeholder': 'Confirm Password'}}) }}
+            <button class="user_func_submit" type="submit">Register!</button>
         {{ form_end(form) }}
 
-        <a href="/">Home</a>
-        <br>
-        <a href="/login">Login</a>
     {% endblock %}
 
 {% endblock %}
