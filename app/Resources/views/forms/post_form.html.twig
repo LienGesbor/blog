@@ -1,5 +1,4 @@
-    {% block createform %}
-<div class="create_post__form_main_wrapper">
+{% block postForm %}
     
     {{ form_start (form) }}
     {{ form_errors (form) }}
@@ -17,5 +16,4 @@
     
     {{ form_end (form) }}
 <a class="back_to_posts_link" href="/">Back to Posts</a>
-</div>
 {% endblock %}

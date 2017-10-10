@@ -1,0 +1,27 @@
+{% extends 'basis.html.twig'%}
+    
+{% block banner_content %}
+
+    <div class="post_form_container">
+        
+        {% block postForm %}
+            
+            {{ form_start (form) }}
+            {{ form_errors (form) }}
+            
+            {{ form_row (form.postTitle) }}
+            {{ form_row (form.postAuthor) }}
+            {{ form_row (form.postBody) }}
+            {{ form_row (form.postDate, {'attr': { 'id': 'postCreateDate', 'class': 'postCreationFormWidget' } } ) }}
+            
+            <input type="submit" value="Edit Post" class="submit_post_button" />
+            
+            {{ form_end (form) }}
+
+        {% endblock %}
+
+    </div>
+{% endblock %}
+
+{% block main_content %}
+{% endblock %}

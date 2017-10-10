@@ -19,23 +19,31 @@ class PostType extends AbstractType
         $builder
                 ->add('postTitle', TextType::class, array(
                     'attr' => array(
+                        'class' => 'post_form_title',
                         'placeholder' => 'Post Title'
                     ),
                     'label' => false
                 ))
                 ->add('postAuthor', TextType::class, array(
                     'attr' => array(
+                        'class' => 'post_form_author',
                         'placeholder' => 'Post Author'
                     ),
                     'label' => false
                 ))
                 ->add('postDate', DateType::class, array(
                     'widget' =>  'choice',
-
-                    'label' => 'Post Date'
+                    'attr' => array(
+                        'class' => 'post_form_date',
+                    ),
+                    'label' => 'Post Date',
+                    'label_attr' => array(
+                        'id' => 'post_date_label'
+                    )
                 ))
                 ->add('postBody', TextareaType::class, array(
                     'attr' => array(
+                        'class' => 'post_form_body',
                         'placeholder' => 'Post Text'
                     ),
                     'label' => false

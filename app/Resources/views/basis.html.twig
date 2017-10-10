@@ -14,8 +14,6 @@
     <body>
 
         <div class="main_wrapper">
-            
-            
             {% block topNavBar %}
                 <div class="top_nav_main_wrapper">
                     <ul class="top_nav">
@@ -75,8 +73,8 @@
             {% endblock %}
 
             
-            {% block main_content %}
             <div class="content_main_wrapper">
+            {% block main_content %}
                 
                 {% block listed_articles %}
                     {% for post in results %}
@@ -90,8 +88,8 @@
                         </div>
                     {% endfor %}
                 {% endblock %}
-            </div>
             {% endblock %}
+            </div>
 
         </div>
 

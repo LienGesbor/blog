@@ -7,6 +7,7 @@ use AppBundle\Entity\Post;
 
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
@@ -25,7 +26,7 @@ class PostController extends Controller
 
         $results = $em->getRepository('AppBundle:Post')->findAll();
         
-        return $this->render('postforms/list.html.twig', array(
+        return $this->render('main/list.html.twig', array(
             'results' => $results,
         ));
     }
@@ -33,9 +34,12 @@ class PostController extends Controller
     
     /**
      * @Route("/post/create", name="create_post")
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_USER') ")
      */
     public function createAction(Request $request)
     {
+        
+        
         $post = new Post();
         
         $form = $this->createForm(PostType::class, $post);
@@ -52,7 +56,7 @@ class PostController extends Controller
             
         }
         
-        return $this->render('postforms/create.html.twig', array(
+        return $this->render('main/create.html.twig', array(
             'form' => $form->createView()
         ));
     }
@@ -63,16 +67,18 @@ class PostController extends Controller
     public function showAction(Post $post)
     {
         
-        return $this->render('postforms/show.html.twig', array(
+        return $this->render('main/show.html.twig', array(
             'post' => $post
         ));
     }
     
     /**
      * @Route("post/{id}/edit", name="edit_post")
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_USER') ")
      */
      public function editAction(Request $request, Post $post)
      {
+         
         $form = $this->createForm(PostType::class, $post);
         
         $form->handleRequest($request);
@@ -86,7 +92,7 @@ class PostController extends Controller
             echo "Post Updated!";
         }
         
-        return $this->render('postforms/edit.html.twig', array(
+        return $this->render('main/edit.html.twig', array(
             'post' => $post,
             'form' => $form->createView()
         ));
