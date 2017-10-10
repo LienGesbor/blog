@@ -6,8 +6,13 @@
         display: none;
     }
 
+    #menu_open_link_container
+    {
+        display: inline-block;
+    }
     #menu_open_link
     {
-        display: inline-block
+        display: block;
+        cursor: pointer;
     }
 }

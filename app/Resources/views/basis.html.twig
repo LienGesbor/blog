@@ -19,7 +19,7 @@
                     <ul class="top_nav">
                         <li><a href="{{ path('homepage')}}">Home</a></li>
 
-                        <li id="menu_open_link" onclick="openNav();"><a>Menu</a></li>
+                        <li a id="menu_open_link_container" onclick="openNav();"><a id="menu_open_link">Menu</a></li>
                         
                         {% if not app.user%}
                         <li><a href="{{ path('user_registration')}}">Register</a></li>
@@ -43,6 +43,9 @@
                 
                 <div id="mySidenav" class="sidenav">
                     <ul class="side_nav_menu">
+
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
                         <li><a href="{{ path('homepage')}}">Home</a></li>
 
                         {% if not app.user%}

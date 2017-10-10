@@ -26,16 +26,26 @@
     align-items: center;
     font-size: 20px;
 }
+.top_nav li
+{
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.top_nav li:hover
+{
+    background-color: #8c8c8c;
+}
 .top_nav a
 {
-    height: 45px;
-    padding: 13px 25px 12px 25px;
+    padding: 10px 25px 10px 25px;
     color: #FFF;
     text-decoration: none;
 }
 .top_nav a:hover
 {
-    background-color: gray;
     color: #000;
 }
 .session_control_link
@@ -254,7 +264,7 @@
     background: url("http://i62.tinypic.com/15xvbd5.png") no-repeat 96% 0%;
     background-color: #3b8ec2;
 }
-.submit_post_button
+.create_post_button
 {
     margin-top: 15px;
     height: 60px;
@@ -265,7 +275,7 @@
     border: none;
     font-size: 25px;
 }
-.submit_post_button:hover
+.create_post_button:hover
 {
     cursor: pointer;
 }
